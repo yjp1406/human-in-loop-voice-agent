@@ -30,16 +30,17 @@
 
 # 🔧 Requirements
 # Python packages
--livekit-agents
--livekit
--python-dotenv
--openai
--deepgram-sdk
--elevenlabs
--aiohttp
+- livekit-agents
+- livekit
+- python-dotenv
+- openai
+- deepgram-sdk
+- elevenlabs
+- aiohttp
 
 # ⚙️ Environment Setup (.env.local)
 LIVEKIT_URL=wss://<your-livekit>.livekit.cloud
 LIVEKIT_API_KEY=<key>
 LIVEKIT_API_SECRET=<secret>
+
 
