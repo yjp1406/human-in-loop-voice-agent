@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Frontdesk HITL</title>
+  <script type="module" src="/static/main.js"></script>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .card { border:1px solid #ddd; padding:12px; border-radius:8px; margin-bottom:20px; }
+    h2 { margin-top:0; }
+    input, textarea { width:100%; margin-bottom:8px; }
+  </style>
+</head>
+<body>
+
+{% if mode == "login" %}
+<h1>Supervisor Login</h1>
+{% if error %}<div style="color:red;">{{error}}</div>{% endif %}
+<form method="post" action="/login">
+  <input type="text" name="username" placeholder="Username" required><br>
+  <input type="password" name="password" placeholder="Password" required><br>
+  <button type="submit">Login</button>
+</form>
+{% else %}
+<h1>Welcome, {{username}}</h1>
+
+<div class="card">
+  <h2>Pending Requests</h2>
+  <div id="pending"></div>
+</div>
+
+<div class="card">
+  <h2>Respond</h2>
+  <form id="respond-form" onsubmit="return sendResponse(event)">
+    <input id="req-id" placeholder="Request ID" required>
+    <textarea id="answer" placeholder="Answer" required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<div class="card">
+  <h2>Quick AI Escalation</h2>
+  <form id="transfer-form" onsubmit="return simulateTransfer(event)">
+    <input id="cust-id" placeholder="Customer ID" value="customer_1" required>
+    <textarea id="question" placeholder="Question" required>What is your refund policy?</textarea>
+    <button type="submit">Create Request</button>
+  </form>
+</div>
+
+<div class="card">
+  <h2>History</h2>
+  <div id="history"></div>
+</div>
+
+<div class="card">
+  <h2>Knowledge Base</h2>
+  <div id="kb"></div>
+</div>
+{% endif %}
+</body>
+</html>
