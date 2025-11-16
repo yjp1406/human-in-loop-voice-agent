@@ -39,8 +39,9 @@
 - aiohttp
 
 # ⚙️ Environment Setup (.env.local)
-LIVEKIT_URL=wss://<your-livekit>.livekit.cloud
-LIVEKIT_API_KEY=<key>
-LIVEKIT_API_SECRET=<secret>
+- LIVEKIT_URL=wss://<your-livekit>.livekit.cloud
+- LIVEKIT_API_KEY=<key>
+- LIVEKIT_API_SECRET=<secret>
+
 
 
